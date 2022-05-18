@@ -12,7 +12,10 @@ defmodule PhoenixSpriteSheet do
       Application.get_env(:phoenix_sprite_sheet, :dirs, [""])
       |> Enum.map(&Path.absname/1)
 
-    output = Application.get_env(:phoenix_sprite_sheet, :output_path, ["priv/static/sheet.svg"])
+    output =
+      Application.get_env(:phoenix_sprite_sheet, :output_path, ["priv/static/sheet.svg"])
+      |> Path.absname()
+
     prefix = Application.get_env(:phoenix_sprite_sheet, :prefix, nil)
 
     %{dirs: dirs, output_path: output, id_prefix: prefix}
