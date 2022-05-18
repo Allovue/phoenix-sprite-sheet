@@ -10,8 +10,17 @@ defmodule PhoenixSpriteSheet.Worker do
   def init(_) do
     %{dirs: dirs} = config = PhoenixSpriteSheet.get_config()
     opts = [name: @monitor, dirs: dirs]
-    {:ok, fs_pid} = FileSystem.start_link(opts)
-    FileSystem.subscribe(fs_pid)
+
+    case FileSystem.start_link(opts) do
+      {:ok, fs_pid} ->
+        FileSystem.subscribe(fs_pid)
+
+      _ ->
+        Logger.warn(
+          "PhoenixSpriteSheet could not start FileSystem. This is ok if you do are not using phoenix_live_reload."
+        )
+    end
+
     {:ok, config}
   end
 
