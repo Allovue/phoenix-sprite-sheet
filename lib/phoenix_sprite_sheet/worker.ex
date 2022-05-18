@@ -15,10 +15,12 @@ defmodule PhoenixSpriteSheet.Worker do
       {:ok, fs_pid} ->
         FileSystem.subscribe(fs_pid)
 
-      _ ->
+      other ->
         Logger.warn(
           "PhoenixSpriteSheet could not start FileSystem. This is ok if you do are not using phoenix_live_reload."
         )
+
+        other
     end
 
     {:ok, config}
