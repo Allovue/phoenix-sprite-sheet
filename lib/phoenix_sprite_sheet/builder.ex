@@ -20,7 +20,7 @@ defmodule PhoenixSpriteSheet.Builder do
   defp list_all_svgs(dirs) do
     Enum.flat_map(dirs, &ls_r(&1))
     |> Enum.filter(&String.ends_with?(&1, @suffix))
-    |> Enum.sort
+    |> Enum.sort()
   end
 
   def build_id_map(files, ""), do: build_id_map(files, nil)

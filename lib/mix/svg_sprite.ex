@@ -11,7 +11,7 @@ defmodule Mix.Tasks.SvgSprite do
     Application.ensure_all_started(:phoenix_sprite_sheet)
     Mix.Task.reenable("svg_sprite")
 
-    PhoenixSpriteSheet.get_config() |> 
-    PhoenixSpriteSheet.Builder.build()
+    PhoenixSpriteSheet.get_config()
+    |> PhoenixSpriteSheet.Builder.build()
   end
 end
