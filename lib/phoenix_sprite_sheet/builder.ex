@@ -48,6 +48,9 @@ defmodule PhoenixSpriteSheet.Builder do
     File.read!(full_path)
     # take a swing for the fences and hope we have valid html
     |> String.replace("xmlns=", ~s( id="#{ident}" xmlns=))
+    |> String.replace("<svg", "<symbol")
+    |> String.replace("</svg>", "</symbol>")
+ 
   end
 
   defp ls_r(path) do
