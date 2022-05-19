@@ -50,7 +50,6 @@ defmodule PhoenixSpriteSheet.Builder do
     |> String.replace("xmlns=", ~s( id="#{ident}" xmlns=))
     |> String.replace("<svg", "<symbol")
     |> String.replace("</svg>", "</symbol>")
- 
   end
 
   defp ls_r(path) do
