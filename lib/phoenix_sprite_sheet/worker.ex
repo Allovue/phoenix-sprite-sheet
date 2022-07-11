@@ -14,6 +14,8 @@ defmodule PhoenixSpriteSheet.Worker do
     case FileSystem.start_link(opts) do
       {:ok, fs_pid} ->
         FileSystem.subscribe(fs_pid)
+        GenServer.cast(self(), :rebuild)
+
 
       other ->
         Logger.warn(
