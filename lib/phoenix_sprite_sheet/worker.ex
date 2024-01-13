@@ -16,9 +16,8 @@ defmodule PhoenixSpriteSheet.Worker do
         FileSystem.subscribe(fs_pid)
         GenServer.cast(self(), :rebuild)
 
-
       other ->
-        Logger.warn(
+        Logger.warning(
           "PhoenixSpriteSheet could not start FileSystem. This is ok if you do are not using phoenix_live_reload."
         )
 
