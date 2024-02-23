@@ -40,6 +40,7 @@ defmodule PhoenixSpriteSheet.Builder do
   end
 
   def write_file(xml, path) do
+    path |> Path.dirname() |> File.mkdir_p!()
     File.write!(path, xml)
     path
   end
