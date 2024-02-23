@@ -18,7 +18,7 @@ defmodule PhoenixSpriteSheet.Worker do
 
 
       other ->
-        Logger.warn(
+        Logger.warning(
           "PhoenixSpriteSheet could not start FileSystem. This is ok if you do are not using phoenix_live_reload."
         )
 
