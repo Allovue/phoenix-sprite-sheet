@@ -23,7 +23,7 @@ defmodule PhoenixSpriteSheet.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:file_system, "~> 0.2.1 or ~> 0.3"}
+      {:file_system, "~> 0.3 or ~> 1.0"}
     ]
   end
 end
